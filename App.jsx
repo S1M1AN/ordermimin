@@ -36,18 +36,14 @@ import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged }
 import { getFirestore, collection, doc, onSnapshot, setDoc, deleteDoc } from 'firebase/firestore';
 
 // --- INISIALISASI FIREBASE ---
-let app, auth, db, appId;
-try {
-  const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-  if (Object.keys(firebaseConfig).length > 0) {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-  }
-} catch (error) {
-  console.error("Gagal menginisialisasi Firebase:", error);
-}
+const firebaseConfig = {
+  apiKey: "AIzaSyC1EGlnEc5U655Po6j-4_ktNue9SDNcyPs",
+  authDomain: "kedai-mimmin.firebaseapp.com",
+  projectId: "kedai-mimmin",
+  storageBucket: "kedai-mimmin.firebasestorage.app",
+  messagingSenderId: "913245244373",
+  appId: "1:913245244373:web:452c837b086599efae0b5c"
+};
 
 // --- DATA DUMMY AWAL (Untuk Sinkronisasi Awal Database) ---
 const initialMenu = [
